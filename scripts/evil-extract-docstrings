@@ -43,6 +43,7 @@
            (push `(,sym (default . ,(cond
                                      ((consp default) (format "%S" default))
                                      ((symbolp default) (symbol-name default))
+                                     ((byte-code-function-p default) (format "%S" default))
                                      (t default)))
                         (local . ,(local-variable-if-set-p sym))
                         (default-type . ,(type-of default))
